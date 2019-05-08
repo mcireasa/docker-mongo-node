@@ -1,0 +1,4 @@
+#am facut fisierul acesta pentru a nu urca toate fisierele deoarce acestea for fi incarcate automat
+
+node_modules
+npm-debug.log 

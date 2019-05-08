@@ -1,0 +1,25 @@
+#specificam versiunea de docker pentru care facem compose
+
+version: "2"
+
+#specificam serviciile care trebuiesc rulate
+#specificam denumirea container-ului 
+#folosim restart pentru ca atunci cand nu merge sa reporneasca
+#folosim build pentru a specifica imaginea pe care vrem sa o cream
+#speficiam porturile pe care vrem sa ruleze aplicatia; 80 pt local si 3000 pt exterior
+#punem tagul de monog pentru a prelua imaginea din docker.hub
+#folosim link pentru a lega aplicatia de mong
+services:
+  app:
+    container_name: docker-node-mongo
+    restart: always
+    build: .
+    ports:
+      - 8081:3000
+    links:
+      - mongo  
+  mongo: 
+    container_name: mongo
+    image: mongo    
+    ports: 
+      - 27017:27017
